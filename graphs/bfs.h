@@ -55,3 +55,38 @@ void BFS(int G[][7], int start, int n)
 }
 
 */
+
+
+void BFS_AllNodes(struct Graph* graph)
+{
+    int numVertices = graph->numVertices;
+    int* visited = (int*)malloc(numVertices * sizeof(int));
+    for (int i = 0; i < numVertices; ++i) {
+        visited[i] = 0; // Mark all vertices as not visited initially
+    }
+
+    queue* q = create_queue(numVertices);
+
+    for (int i = 0; i < numVertices; ++i) {
+        if (!visited[i]) {
+            visited[i] = 1;
+            enqueue(q, i);
+
+            while (!is_empty(q)) {
+                int currentVertex = dequeue(q);
+                printf("%d ", currentVertex);
+
+                for (int j = 0; j < numVertices; j++) {
+                    if (graph->adjacencyMatrix[currentVertex][j] && !visited[j]) {
+                        visited[j] = 1;
+                        enqueue(q, j);
+                    }
+                }
+            }
+        }
+    }
+
+    free(visited);
+    free(q->data);
+    free(q);
+}
