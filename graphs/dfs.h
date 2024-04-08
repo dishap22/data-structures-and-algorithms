@@ -38,17 +38,19 @@ void DFS(int G[][7], int start, int n)
 
 */
 
-void DFS_AllNodes(struct Graph* graph)
+void DFSAllVertices(struct Graph* graph)
 {
-    int* visited = (int*)malloc(graph->numVertices * sizeof(int));
-    for (int i = 0; i < graph->numVertices; ++i) {
-        visited[i] = 0; // Mark all vertices as not visited initially
+    int visited[graph->numVertices];
+    for (int i = 0; i < graph->numVertices; ++i)
+    {
+        visited[i] = 0;
     }
 
-    for (int i = 0; i < graph->numVertices; ++i) {
-        if (!visited[i]) {
+    for (int i = 0; i < graph->numVertices; ++i)
+    {
+        if (!visited[i])
+        {
             DFS(graph, i, visited);
         }
     }
-    free(visited);
 }
