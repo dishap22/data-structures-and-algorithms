@@ -1,4 +1,4 @@
-#include "graph.c"
+#include "graph.h"
 
 void DFS(struct Graph* graph, int vertex, int visited[])
 {

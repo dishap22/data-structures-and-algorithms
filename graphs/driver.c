@@ -1,5 +1,4 @@
-#include "dfs.c"
-#include "bfs.c"
+#include "bfs.h"
 
 int main()
 {
@@ -17,6 +16,9 @@ int main()
 
     printf("DFS Traversal: ");
     DFS(graph, 0, visited);
+
+    printf("BFS Traversal: ");
+    BFS(graph, 0);
     
     free(graph);
 }
