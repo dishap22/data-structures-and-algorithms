@@ -25,7 +25,7 @@ void find_min_spanning_tree(int n,vector<int>&parent, vector<bool>visited, vecto
         curr_parent = idx;
         for(int j=0;j<n; j++){
             if(v[idx][j] !=0 && visited[j]==false && v[idx][j] < dist[j]){
-                v[idx][j] = dist[j];
+                dist[j] = v[idx][j] ;
                 parent[j] = idx;
             }
         }
